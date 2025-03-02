@@ -14,5 +14,5 @@ function verifyMessage(){
         messageLegitimacy.textContent = " is yet to be encoded. ";
   }
 
-  document.getElementbyId('result').innerHTML = "The message " + """ + message + "" " + messageLegitimacy.textContent;
+  document.getElementbyId('result').innerHTML = 'The message ' + '"' + message + '" ' + messageLegitimacy.textContent;
 }

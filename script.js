@@ -1,18 +1,20 @@
 function verifyMessage(){
   let message = prompt("Enter the message to be verified: ");
-  let messageLegitimacy = document.getElementById("result");
 
-  if (message.includes("FR")){
-        messageLegitimacy.textContent = " is legitimate. ";
-  } else if (message.includes("FR") && message.includes("AI")){
-        messageLegitimacy.textContent = " is legitimate. ";
-  } else if (message.includes("AI")){
-        messageLegitimacy.textContent = " is tampered with. ";
-  } else if (message.includes("aI") || message.includes("Ai")){
-        messageLegitimacy.textContent = " is tampered with. ";
+  if (message.toUppercase().indexOf("FR") >= 0 ){
+    result = true;
+    return document.getElementById("result").innerHTML = Your message " ${message} " is legitimate!;
+  } else if (message.toUppercase().indexOf("AI") >= 0 ){
+    result = false;
+    return document.getElementById("result").innerHTML = Your message " ${message} " is fake!;
+  } else if (message.toUppercase().indexOf("FR") >= 0 && message.toUppercase().indexOf("AI")){
+    result = true;
+    return document.getElementById("result").innerHTML = Your message " ${message} " is legitimate!;
+  } else if (message.indexOf("Ai") >= 0 || message.indexOf("aI" >= 0 ){
+    result = true;
+    return document.getElementById("result").innerHTML = Your message " ${message} " is fake!;
   } else {
-        messageLegitimacy.textContent = " is yet to be encoded. ";
+    result = false;
+    return document.getElementById("result").innerHTML = Your message " ${message} " is yet to be encoded.;
   }
-
-  document.getElementbyId('result').innerHTML = 'The message ' + '"' + message + '" ' + messageLegitimacy.textContent;
 }
